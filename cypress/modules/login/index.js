@@ -23,12 +23,20 @@ function verficarmensagemDeErroLogin() {
       .should("exist")
       .should("be.visible")
       .should("contain", "Your email or password is incorrect!")
-      .and("contain.text", "Your email or password is incorrect!");
   };
+
+function realizarLogout() {
+  cy.get('a[href*="logout"]').should("be.visible").click();
+
+    cy.get('a[href*="logout"]').should("not.exist");
+    cy.get('[action*="login"]').should("be.visible");
+    cy.url().should("include", "login");
+}
 
 
 module.exports = {
   preencherFormularioLogin,
   verificarSeUsuarioEstaLogado,
-  verficarmensagemDeErroLogin
+  verficarmensagemDeErroLogin,
+  realizarLogout,
 };

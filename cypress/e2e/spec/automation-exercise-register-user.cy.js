@@ -5,7 +5,6 @@ import { deleteAccount } from "../../helpers/deleteAccount";
 import { criarUsuarioDeTeste } from "../../helpers/criarUsuarioDeTeste";
 const cadastro = require("../../modules/cadastro/index.js");
 
-
 describe("Automation Exercise - Register User", () => {
   it("Register User", () => {
     navegarParaPaginaInicial();

@@ -9,7 +9,6 @@ const produto = require("../../modules/produto/index.js");
 const pedido = require("../../modules/pedido/index.js");
 
 describe("Automation Exercise - Place Order", () => {
-
   it("Place Order: Register before Checkout", () => {
     navegarParaPaginaInicial();
 
@@ -56,39 +55,41 @@ describe("Automation Exercise - Place Order", () => {
   });
 
   it("Place Order: Login before Checkout", () => {
-     criarUsuarioDeTeste().then((usuario) => {
-    navegarParaPaginaInicial();
+    criarUsuarioDeTeste().then((usuario) => {
+      navegarParaPaginaInicial();
 
-    loginUsuario.preencherFormularioLogin(usuario.email, usuario.senha);
+      loginUsuario.preencherFormularioLogin(usuario.email, usuario.senha);
 
-    loginUsuario.verificarSeUsuarioEstaLogado(`PGATS`);
+      loginUsuario.verificarSeUsuarioEstaLogado(`PGATS`);
 
-    produto.navegaParaProdutos();
+      produto.navegaParaProdutos();
 
-    produto.selecionarProdutos();
+      produto.selecionarProdutos();
 
-    produto.verificaModalDeProdutoAdicionado();
+      produto.verificaModalDeProdutoAdicionado();
 
-    pedido.irParaCarrinhoDeCompras();
+      pedido.irParaCarrinhoDeCompras();
 
-    cy.get("a").contains("Proceed To Checkout").click();
+      cy.get("a").contains("Proceed To Checkout").click();
 
-    pedido.revisarProdutoAdicionadoAoCarrinho();
-    pedido.revisarEnderecoDeEntrega();
+      pedido.revisarProdutoAdicionadoAoCarrinho();
+      pedido.revisarEnderecoDeEntrega();
 
-    cy.get("textarea[name='message']").type(
-      "Please deliver between 10 AM to 6 PM.",
-    );
+      cy.get("textarea[name='message']").type(
+        "Please deliver between 10 AM to 6 PM.",
+      );
 
-    cy.get("a[href*='/payment']").contains("Place Order").click();
+      cy.get("a[href*='/payment']").contains("Place Order").click();
 
-    pedido.preencherFormularioDePagamento();
+      pedido.preencherFormularioDePagamento();
 
-    cy.get('[data-qa="pay-button"]').contains("Pay and Confirm Order").click();
+      cy.get('[data-qa="pay-button"]')
+        .contains("Pay and Confirm Order")
+        .click();
 
-    pedido.verificarSePagamentoFoiEfetuadoComSucesso();
+      pedido.verificarSePagamentoFoiEfetuadoComSucesso();
 
-    deleteAccount();
-  })
+      deleteAccount();
+    });
   });
 });

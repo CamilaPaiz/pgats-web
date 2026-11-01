@@ -3,7 +3,6 @@
 import { navegarParaPaginaInicial } from "../../helpers/navigation";
 
 describe("Automation Exercise - Subscription", () => {
-
   it("Verify Subscription in home page", () => {
     navegarParaPaginaInicial();
 

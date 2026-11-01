@@ -3,9 +3,7 @@
 import { navegarParaPaginaInicial } from "../../helpers/navigation.js";
 const produto = require("../../modules/produto/index.js");
 
-
 describe("Automation Exercise - Products", () => {
- 
   it("Verify All Products and product detail page", () => {
     navegarParaPaginaInicial();
 
