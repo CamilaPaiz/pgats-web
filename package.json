@@ -1,0 +1,29 @@
+{
+  "name": "pgats-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "npm run cypress:open",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
+    "@faker-js/faker": "^10.6.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "cypress": "^13.7.3",
+    "cypress-mochawesome-reporter": "^3.8.4",
+    "vite": "^5.4.21"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  }
+}

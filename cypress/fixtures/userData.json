@@ -1,0 +1,17 @@
+{
+  "firstName": "PGATS",
+  "lastName": "Aut",
+  "signUpName": "PGATS Aut",
+  "company": "PGATS",
+  "address": "Example Address",
+  "country": "United States",
+  "state": "California",
+  "city": "San Francisco",
+  "zipcode": "12345",
+  "mobileNumber": "999999999",
+  "password": "12345",
+  "days": "1",
+  "months": "September",
+  "years": "1990",
+  "email": "pgats-aut-test-1791030872114@mail.com"
+}

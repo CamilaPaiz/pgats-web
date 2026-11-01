@@ -1,0 +1,34 @@
+
+function preencherFormularioLogin(email, senha) {
+  cy.get("a[href*=login]").click();
+
+  cy.get('div[class="login-form"]')
+    .should("be.visible")
+    .and("contain", "Login to your account");
+
+  cy.get('[data-qa="login-email"]').type(email);
+  cy.get('[data-qa="login-password"]').type(senha);
+
+  cy.get('[data-qa="login-button"]').click();
+}
+
+function verificarSeUsuarioEstaLogado(name) {
+  cy.get(".navbar-nav li")
+    .contains(`Logged in as ${name}`)
+    .should("be.visible");
+}
+
+function verficarmensagemDeErroLogin() {
+  cy.get('form[action*="login"] > p')
+      .should("exist")
+      .should("be.visible")
+      .should("contain", "Your email or password is incorrect!")
+      .and("contain.text", "Your email or password is incorrect!");
+  };
+
+
+module.exports = {
+  preencherFormularioLogin,
+  verificarSeUsuarioEstaLogado,
+  verficarmensagemDeErroLogin
+};
