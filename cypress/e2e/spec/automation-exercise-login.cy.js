@@ -6,7 +6,7 @@ import { criarUsuarioDeTeste } from "../../helpers/criarUsuarioDeTeste.js";
 const loginUsuario = require("../../modules/login/index.js");
 
 
-describe("Automation Exercise", () => {
+describe("Automation Exercise -Login", () => {
     let usuario;
 
     beforeEach(() => {
@@ -15,7 +15,7 @@ describe("Automation Exercise", () => {
     });
   });
 
-  it("2-Login User with correct email and password", () => {
+  it("Login User with correct email and password", () => {
     navegarParaPaginaInicial();
 
     loginUsuario.preencherFormularioLogin(usuario.email, usuario.senha);
@@ -27,7 +27,7 @@ describe("Automation Exercise", () => {
     deleteAccount();
   });
 
-  it("3-Login User with incorrect email and password", () => {
+  it("Login User with incorrect email and password", () => {
     navegarParaPaginaInicial();
 
     loginUsuario.preencherFormularioLogin(usuario.email, "54321");
@@ -35,7 +35,7 @@ describe("Automation Exercise", () => {
     loginUsuario.verficarmensagemDeErroLogin();
   });
     
-  it("4-Logout User", () => {
+  it("Logout User", () => {
     navegarParaPaginaInicial();
 
     loginUsuario.preencherFormularioLogin(usuario.email, usuario.senha);
